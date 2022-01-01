@@ -10,8 +10,6 @@ checkArea().then(function(){
     const lotteryResults = document.querySelector("#lotteryResults")
     const autoSel = document.querySelector("#autoSel")
     const cancel = document.querySelector("#cancel")
-    
-    let lottoResult = lotteryResults.innerHTML = "당첨 번호 = " + lotto
 
     function lottoNumSort(){   // 숫자 오름차순 정렬
         lotto.sort(function(a,b){
@@ -56,7 +54,7 @@ checkArea().then(function(){
                 if( checkArea[i].classList.contains("active") ){  // index 6개 일 때 active 비활성화
                     checkArea[i].classList.toggle("active")
                     lotto.splice(lottoIdx, 1);
-                    lottoResult
+                    lotteryResults.innerHTML = "당첨 번호 = " + lotto
                 } else {
                     alert("6개 이하의 숫자만 입력 가능합니다")
                 }
@@ -65,10 +63,10 @@ checkArea().then(function(){
 
                 if( checkArea[i].classList.contains("active") ){  // 결과값 제거
                     lotto.splice(lottoIdx, 1);
-                    lottoResult
+                    lotteryResults.innerHTML = "당첨 번호 = " + lotto
                 } else {        
                     lotto.splice(0, 0, checkAreaTxt)
-                    lottoResult
+                    lotteryResults.innerHTML = "당첨 번호 = " + lotto
                     lottoNumSort()
                 }
 
@@ -94,7 +92,7 @@ checkArea().then(function(){
 
         lotto = []; 
         lottoNum()
-        lottoResult
+        lotteryResults.innerHTML = "당첨 번호 = " + lotto
 
     })
 
@@ -106,6 +104,6 @@ checkArea().then(function(){
     })
 
     // 로또 결과
-    // lottoResult
+    // lotteryResults.innerHTML = "당첨 번호 = " + lotto
     
 })
