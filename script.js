@@ -55,7 +55,7 @@ checkArea().then(function(){
                     checkArea[i].classList.toggle("active")
                     lotto.splice(lottoIdx, 1);
                     lottoNumSort()
-                    lotteryResults.innerHTML = "당첨 번호 = " + lotto
+                    lotteryResults.innerHTML = "당첨 번호 " + lotto
                 } else {
                     alert("6개 이하의 숫자만 입력 가능합니다")
                 }
@@ -64,11 +64,11 @@ checkArea().then(function(){
 
                 if( checkArea[i].classList.contains("active") ){  // 결과값 제거
                     lotto.splice(lottoIdx, 1);
-                    lotteryResults.innerHTML = "당첨 번호 = " + lotto
+                    lotteryResults.innerHTML = "당첨 번호 " + lotto
                 } else {        
                     lotto.splice(0, 0, checkAreaTxt)
                     lottoNumSort()
-                    lotteryResults.innerHTML = "당첨 번호 = " + lotto
+                    lotteryResults.innerHTML = "당첨 번호 " + lotto
                 }
 
                 checkArea[i].classList.toggle("active")
@@ -93,7 +93,7 @@ checkArea().then(function(){
 
         lotto = []; 
         lottoNum()
-        lotteryResults.innerHTML = "당첨 번호 = " + lotto
+        lotteryResults.innerHTML = "당첨 번호 " + lotto
 
     })
 
@@ -105,6 +105,6 @@ checkArea().then(function(){
     })
 
     // 로또 결과
-    lotteryResults.innerHTML = "당첨 번호 = "
+    lotteryResults.innerHTML = "당첨 번호 "
     
 })
