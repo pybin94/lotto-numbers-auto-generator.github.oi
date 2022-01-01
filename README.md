@@ -1,0 +1,1 @@
+# lotto-numbers-auto-generator.github.oi
