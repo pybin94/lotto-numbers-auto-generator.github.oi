@@ -55,6 +55,7 @@ checkArea().then(function(){
                     checkArea[i].classList.toggle("active")
                     lotto.splice(lottoIdx, 1);
                     lotteryResults.innerHTML = "당첨 번호 = " + lotto
+                    lottoNumSort()
                 } else {
                     alert("6개 이하의 숫자만 입력 가능합니다")
                 }
@@ -64,7 +65,6 @@ checkArea().then(function(){
                 if( checkArea[i].classList.contains("active") ){  // 결과값 제거
                     lotto.splice(lottoIdx, 1);
                     lotteryResults.innerHTML = "당첨 번호 = " + lotto
-                    lottoNumSort()
                 } else {        
                     lotto.splice(0, 0, checkAreaTxt)
                     lotteryResults.innerHTML = "당첨 번호 = " + lotto
