@@ -57,7 +57,7 @@ checkArea().then(function(){
                     lottoNumSort()
                     lotteryResults.innerHTML = "번호 " + lotto
                 } else {
-                    alert("6개 이하의 숫자만 입력 가능합니다")
+                    alert("6개 이하의 숫자만 입력 가능합니다.")
                 }
 
             }else{
