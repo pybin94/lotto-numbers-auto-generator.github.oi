@@ -1,0 +1,23 @@
+*{ box-sizing: border-box;}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.lottery-paper {
+    width: 180px;
+}
+.check-area {
+    width: 20px;
+    height: 30px;
+    border: 1px solid #000;
+    text-align: center;
+    margin: 2px;
+    font-size: 12px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.check-area.active {
+    background-color: #000;
+    color: #fff;
+}
