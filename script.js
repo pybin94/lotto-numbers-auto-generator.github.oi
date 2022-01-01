@@ -104,6 +104,6 @@ checkArea().then(function(){
     })
 
     // 로또 결과
-    // lotteryResults.innerHTML = "당첨 번호 = " + lotto
+    lotteryResults.innerHTML = "당첨 번호 = "
     
 })
