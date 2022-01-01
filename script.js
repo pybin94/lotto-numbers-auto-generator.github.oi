@@ -99,7 +99,7 @@ checkArea().then(function(){
 
     cancel.addEventListener("click", function(){  // 취소 버튼
 
-        lotteryResults.innerHTML = "번호 = "
+        lotteryResults.innerHTML = "번호 "
         lotto = []; 
 
     })
