@@ -1,23 +1,23 @@
-async function checkArea(){
+const checkArea = async () {
     for( let i = 1; i < 46; i++ ){
         document.querySelector("#lotteryPaper").innerHTML += `<div id="checkArea" class="check-area">${i}</div>`
     }
 }
 
-checkArea().then(function(){
+checkArea().then(() => {
     let lotto = []; 
     const checkArea = document.querySelectorAll("#checkArea")
     const lotteryResults = document.querySelector("#lotteryResults")
     const autoSel = document.querySelector("#autoSel")
     const cancel = document.querySelector("#cancel")
 
-    function lottoNumSort(){   // 숫자 오름차순 정렬
+    const lottoNumSort() => {   // 숫자 오름차순 정렬https://github.com/pybin94/lotto_numbers_auto_generator.github.io/blob/main/script.js
         lotto.sort(function(a,b){
             return a - b;
         });
     }
 
-    function lottoNum(){
+    const lottoNum() => {
         for(let i = 0; i < 6; i++){
             let num = Math.floor(Math.random() * 44) + 1;
             
