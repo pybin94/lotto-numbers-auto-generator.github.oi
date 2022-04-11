@@ -2,7 +2,7 @@ const init = () => {
     lottoryBox()
 }
 
-const mkCheckArea = async () => {
+const mkCheckArea = () => {
 
     let checkBox;
     checkBox = ""
@@ -14,9 +14,9 @@ const mkCheckArea = async () => {
     return document.querySelector("#lotteryPaper").innerHTML = checkBox
 }
 
-const lottoryBox = async () => {
+const lottoryBox = () => {
     
-    await mkCheckArea()
+    mkCheckArea()
 
     let lotto = []; 
     const checkArea = document.querySelectorAll("#checkArea")
