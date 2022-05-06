@@ -1,6 +1,7 @@
 let lotto = []; 
 
 const init = () => {
+mkCheckArea()
     lottoryBox()
 }
 
@@ -15,8 +16,6 @@ const mkCheckArea = () => {
 
     return document.querySelector("#lotteryPaper").innerHTML = checkBox
 }
-
-mkCheckArea()
 
 const lottoNumSort = (lottoArr) => {   // 오름차순 정렬
     lottoArr.sort((a, b) => {
@@ -45,7 +44,6 @@ const lottoNum = () => {
     }
 
     lottoNumSort(lotto)
-
 }
 
 const lottoryBox = () => {
@@ -85,10 +83,6 @@ const lottoryBox = () => {
             }
         })
     }
-
-    // 로또 결과
-    // lotteryResults.innerHTML = "번호 "
-
 }
 
 const reset = () => {
