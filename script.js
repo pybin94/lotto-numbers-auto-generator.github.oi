@@ -32,7 +32,6 @@ const lottoNum = () => {
                 num = Math.floor(Math.random() * 44) + 1;
             }
         }
-
         lotto.push(num);
     }
 
@@ -41,7 +40,6 @@ const lottoNum = () => {
         
         document.querySelectorAll("#checkArea")[lottoIndex-1].classList.add("active") 
     }
-
     lottoNumSort(lotto)
 }
 
