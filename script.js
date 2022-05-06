@@ -1,4 +1,3 @@
-
 let lotto = []; 
 
 const init = () => {
