@@ -1,3 +1,6 @@
+
+let lotto = []; 
+
 const init = () => {
     lottoryBox()
 }
@@ -14,44 +17,42 @@ const mkCheckArea = () => {
     return document.querySelector("#lotteryPaper").innerHTML = checkBox
 }
 
-const lottoryBox = () => {
-    
-    mkCheckArea()
+mkCheckArea()
 
-    let lotto = []; 
-    const checkArea = document.querySelectorAll("#checkArea")
-    const lotteryResults = document.querySelector("#lotteryResults")
-    const autoSel = document.querySelector("#autoSel")
-    const cancel = document.querySelector("#cancel")
+const lottoNumSort = (lottoArr) => {   // 오름차순 정렬
+    lottoArr.sort((a, b) => {
+        return a - b;
+    });
+}
 
-    const lottoNumSort = () => {   // 오름차순 정렬
-        lotto.sort(function(a,b){
-            return a - b;
-        });
-    }
+const lottoNum = () => {
 
-    const lottoNum = () => {
-        for(let i = 0; i < 6; i++){
-            let num = Math.floor(Math.random() * 44) + 1;
-            
-            for(let j in lotto){
-                if(num == lotto[j]){ // 숫자 중복 체크
-                    num = Math.floor(Math.random() * 44) + 1;
-                }
+
+    for(let i = 0; i < 6; i++){
+        let num = Math.floor(Math.random() * 44) + 1;
+        
+        for(let j in lotto){
+            if(num == lotto[j]){ // 숫자 중복 체크
+                num = Math.floor(Math.random() * 44) + 1;
             }
-
-            lotto.push(num);
         }
 
-        for( let i = 0; i < lotto.length; i++){ // 로또 번호 check
-            let lottoIndex = lotto[i]
-            
-            checkArea[lottoIndex-1].classList.add("active") 
-        }
-
-        lottoNumSort()
-
+        lotto.push(num);
     }
+
+    for( let i = 0; i < lotto.length; i++){ // 로또 번호 check
+        let lottoIndex = lotto[i]
+        
+        document.querySelectorAll("#checkArea")[lottoIndex-1].classList.add("active") 
+    }
+
+    lottoNumSort(lotto)
+
+}
+
+const lottoryBox = () => {
+    const checkArea = document.querySelectorAll("#checkArea");
+    const lotteryResults = document.querySelector("#lotteryResults");
 
     for( let i = 0; i < checkArea.length; i++){  // 로또 번호 클릭 이벤트
         checkArea[i].addEventListener("click", function(){
@@ -65,7 +66,7 @@ const lottoryBox = () => {
                 if( checkArea[i].classList.contains("active") ){  // index 6개 일 때 active 비활성화
                     checkArea[i].classList.toggle("active")
                     lotto.splice(lottoIdx, 1);
-                    lottoNumSort()
+                    lottoNumSort(lotto)
                     lotteryResults.innerHTML = "번호 " + lotto
                 } else {
                     alert("6개 이하의 숫자만 입력 가능합니다.")
@@ -78,40 +79,36 @@ const lottoryBox = () => {
                     lotteryResults.innerHTML = "번호 " + lotto
                 } else {        
                     lotto.splice(0, 0, checkAreaTxt)
-                    lottoNumSort()
+                    lottoNumSort(lotto)
                     lotteryResults.innerHTML = "번호 " + lotto
                 }
 
                 checkArea[i].classList.toggle("active")
             }
-
-        })
-
-    }
-    const reset = () => {
-        lotto = []
-        checkArea.forEach((item, index) => {
-            checkArea[index].classList.remove("active")
         })
     }
-    
-    autoSel.addEventListener("click", () => {  // 자동선택 버튼
-        reset()
-        lottoNum()
-        lotteryResults.innerHTML = "번호 " + lotto
-    })
-    
-    cancel.addEventListener("click", () => {  // 취소 버튼
-        reset()
-        lotteryResults.innerHTML = "번호 "
-    })
 
     // 로또 결과
-    lotteryResults.innerHTML = "번호 "
-    
+    // lotteryResults.innerHTML = "번호 "
+
 }
 
+const reset = () => {
+    lotto = []
+    document.querySelectorAll("#checkArea").forEach((item, index) => {
+        document.querySelectorAll("#checkArea")[index].classList.remove("active")
+    })
+}
 
+const autoSel = () => {  // 자동선택 버튼
+    reset()
+    lottoNum()
+    document.querySelector("#lotteryResults").innerHTML = "번호 " + lotto
+};
 
+const cancelBtn = () => {  // 취소 버튼
+    reset()
+    document.querySelector("#lotteryResults").innerHTML = "번호 "
+};
 
 init()
