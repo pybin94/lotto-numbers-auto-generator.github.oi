@@ -1,12 +1,11 @@
 let lotto = []; 
 
 const init = () => {
-mkCheckArea()
+    mkCheckArea()
     lottoryBox()
 }
 
 const mkCheckArea = () => {
-
     let checkBox;
     checkBox = ""
 
