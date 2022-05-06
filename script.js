@@ -27,7 +27,6 @@ const lottoNumSort = (lottoArr) => {   // 오름차순 정렬
 
 const lottoNum = () => {
 
-
     for(let i = 0; i < 6; i++){
         let num = Math.floor(Math.random() * 44) + 1;
         
