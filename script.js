@@ -22,22 +22,34 @@ const lottoNumSort = (lottoArr) => {   // 오름차순 정렬
     });
 }
 
+const range = (start, end) => {
+    let array = [];
+    for (let i = start; i < end; ++i) {
+        array.push(i);
+    };
+    return array;
+};
+
+const shuffle = (array) => {
+    for (let index = array.length - 1; index > 0; index--) {
+        const randomPosition = Math.floor(Math.random() * (index + 1));
+        const temporary = array[index];
+        array[index] = array[randomPosition];
+        array[randomPosition] = temporary;
+    }
+}
+
 const lottoNum = () => {
 
+    let ballList = range(1,46)
+    shuffle(ballList)
+
     for(let i = 0; i < 6; i++){
-        let num = Math.floor(Math.random() * 44) + 1;
-        
-        for(let j in lotto){
-            if(num == lotto[j]){ // 숫자 중복 체크
-                num = Math.floor(Math.random() * 44) + 1;
-            }
-        }
-        lotto.push(num);
-    }
+        lotto.push(ballList[i]);
+    };
 
     for( let i = 0; i < lotto.length; i++){ // 로또 번호 check
         let lottoIndex = lotto[i]
-        
         document.querySelectorAll("#checkArea")[lottoIndex-1].classList.add("active") 
     }
     lottoNumSort(lotto)
@@ -48,7 +60,7 @@ const lottoryBox = () => {
     const lotteryResults = document.querySelector("#lotteryResults");
 
     for( let i = 0; i < checkArea.length; i++){  // 로또 번호 클릭 이벤트
-        checkArea[i].addEventListener("click", function(){
+        checkArea[i].addEventListener("click", () => {
 
             let activeCheckArea = document.querySelectorAll("#checkArea.active")
             let checkAreaTxt = Number(checkArea[i].innerText)      // 체크박스 숫자
