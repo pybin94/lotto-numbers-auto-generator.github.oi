@@ -25,7 +25,7 @@ const lottoNumSort = (lottoArr) => {   // 오름차순 정렬
 const range = (start, end) => {
     let array = [];
     for (let i = start; i < end; ++i) {
-        array = [...array, i ];
+        array = [...array, i];
     };
     return array;
 };
