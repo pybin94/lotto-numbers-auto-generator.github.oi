@@ -25,7 +25,7 @@ const lottoNumSort = (lottoArr) => {   // 오름차순 정렬
 const range = (start, end) => {
     let array = [];
     for (let i = start; i < end; ++i) {
-        array.push(i);
+        array = [ ...array, i ];
     };
     return array;
 };
@@ -45,7 +45,7 @@ const lottoNum = () => {
     shuffle(ballList)
 
     for(let i = 0; i < 6; i++){
-        lotto.push(ballList[i]);
+        lotto = [ ...lotto, ballList[i]];
     };
 
     for( let i = 0; i < lotto.length; i++){ // 로또 번호 check
